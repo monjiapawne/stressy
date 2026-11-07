@@ -6,7 +6,7 @@ from stressy.history_page import HistoryPage
 from stressy.run_page import RunPage
 
 
-class Win(Adw.ApplicationWindow):
+class MainWindow(Adw.ApplicationWindow):
     def __init__(self, worker_loop: AbstractEventLoop, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.set_size_request(width=200, height=-1)
@@ -44,5 +44,5 @@ class StressyApp(Adw.Application):
         self._worker_loop = worker_loop
 
     def on_activate(self, app):
-        self.win = Win(self._worker_loop, application=app)
+        self.win = MainWindow(self._worker_loop, application=app)
         self.win.present()
